@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مراقب الحرارة الذكي</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <button class="theme-toggle" onclick="toggleTheme()">🌓 تبديل المظهر</button>
+        
+        <div class="header">
+            <h1>مراقب درجة حرارة الجهاز</h1>
+        </div>
+
+        <div class="dashboard">
+            <div class="card">
+                <h2>القراءة الحالية</h2>
+                <div id="temperature">--°C</div>
+                
+                <div class="alert-section">
+                    <h3>إعدادات الإنذار</h3>
+                    <label>الحد الأعلى: 
+                        <input type="number" class="threshold-input" id="maxThreshold" value="40">°C
+                    </label>
+                    <br><br>
+                    <label>الحد الأدنى: 
+                        <input type="number" class="threshold-input" id="minThreshold" value="25">°C
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h2>التاريخ الزمني</h2>
+                <canvas id="temperatureChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="stats">
+                <h3>الإحصائيات</h3>
+                <div>أعلى قراءة: <span id="maxTemp">--°C</span></div>
+                <div>أقل قراءة: <span id="minTemp">--°C</span></div>
+                <div>متوسط القراءات: <span id="avgTemp">--°C</span></div>
+            </div>
+            <button onclick="toggleUnit()">تبديل الوحدة (°F/°C)</button>
+        </div>
+
+        <div class="notification" id="notification"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
