@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <button class="theme-toggle" onclick="toggleTheme()">🌓 تبديل المظهر</button>
+        <button class="theme-toggle" onclick="app.toggleTheme()">🌓 تبديل المظهر</button>
         
         <div class="header">
             <h1>مراقب درجة حرارة الجهاز</h1>
@@ -45,12 +45,18 @@
                 <div>أقل قراءة: <span id="minTemp">--°C</span></div>
                 <div>متوسط القراءات: <span id="avgTemp">--°C</span></div>
             </div>
-            <button onclick="toggleUnit()">تبديل الوحدة (°F/°C)</button>
+            <button onclick="app.toggleUnit()">تبديل الوحدة (°F/°C)</button>
         </div>
 
         <div class="notification" id="notification"></div>
     </div>
 
     <script src="app.js"></script>
+    <script>
+        // تهيئة التطبيق بعد تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            app.init();
+        });
+    </script>
 </body>
 </html>
